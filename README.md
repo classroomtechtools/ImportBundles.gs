@@ -4,7 +4,7 @@ Useful stuff available on npm, bundled up for server-side appsscripts. Use this 
 
 Note that the intent here is not to provide entire included packages wholesale, but pieces of them that are particularly useful.
 
-- Methods for making working with date easier
+- Methods for making working with dates easier
 - Methods for making working with objects
 
 ## Usage 
