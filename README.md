@@ -51,7 +51,7 @@ const date = new Date(str);
 
 And that works brilliantly. But if that string isn't in a format that works for dates, it still works:
 
-```
+```js
 const str = '3';
 const date = new Date(str);  // yikes!
 ```
@@ -81,17 +81,45 @@ const nestedObj2 = {two: {three: '3'}};
 const obj3 = Object.assign(nestedObj1, nestedObj2);
 ```
 
-This doesn't do what you think it might be doing. It holds references, so if you do this assignment:
+For nested objects, it holds references, so if you do this assignment:
 
 ```js
 obj3.two = 100;
-nestedObj2.two == 100;  // true ... yikes!
+nestedObj1.two == 100;  // true ... yikes!
 ```
 
-What you need to do is make a deep copy of it. This is available in the lodash library.
+Look at that last line carefully! It's really not what you want!
+
+Or you could use the spread syntax, which does work in the above example. However:
 
 ```js
-const obj3 = _.cloneDeep(nestedObj1, nestedObj2);
+// Object nesting
+const x = { a: { a: 1 } }
+const y = { a: { b: 1 } }
+const z = { ...x, ...y } // { a: { b: 1 } }
+```
+
+Instead of `{ a: { a: 1, b: 1 } }` z is `{ a: { b: 1 } }`. Yikes! (Taken from [here](https://stackoverflow.com/questions/27936772/how-to-deep-merge-instead-of-shallow-merge).)
+
+We should be able to do this, right?
+
+```js
+var object = {
+  'a': [{ 'b': 2 }, { 'd': 4 }]
+};
+ 
+var other = {
+  'a': [{ 'c': 3 }, { 'e': 5 }]
+};
+
+_.merge(object, other);
+// => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
+```
+
+Such functionality is available in the lodash library:
+
+```js
+const obj3 = _.merge(nestedObj1, nestedObj2);
 obj3.two = 100;
 nestedObj2.two == 100;  // false ... yipee
 ```
@@ -114,8 +142,9 @@ The last function is particularly useful for converting dates into target timezo
 ### Lodash
 
 - `cloneDeep` [documentation](https://lodash.com/docs/4.17.15#cloneDeep)
+- `merge` [documentation](https://lodash.com/docs/4.17.15#merge)
 
-This function is useful for making copies of nested objects.
+These function is useful for making copies of, or combining, nested objects.
 
 
 ## Misc
