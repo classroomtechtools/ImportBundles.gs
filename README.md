@@ -121,7 +121,7 @@ Such functionality is available in the lodash library:
 ```js
 const obj3 = _.merge(nestedObj1, nestedObj2);
 obj3.two = 100;
-nestedObj2.two == 100;  // false ... yipee
+nestedObj1.two == 100;  // false ... yipee
 ```
 
 This is a solved problem! Let's use it!
