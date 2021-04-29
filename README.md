@@ -38,7 +38,7 @@ Note: There is nothing special about this `const {name} = Import;` syntax; it's 
 
 ## Why?
 
-There are programming challenges that have been solved by other developers in the npm ecosphere. The AppsScripts community would be better served by having those solutions being made avaiable to them.
+There are programming challenges that have been solved by other developers in the npm ecosphere. The AppsScripts community would be better served by having those solutions being made available to them.
 
 ### Example: Validating date strings
 
