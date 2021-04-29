@@ -51,11 +51,6 @@ Note: There is nothing special about this `const {name} = Import;` syntax; it's 
 
 This library is basically just a convenience wrapper for other projects. Consult documentation on their end on usage.
 
-#### Naming conventions
-
-- `Lodash.cloneDeep.Bundle.gs` means that you can import `"Lodash"` and use the its single method `cloneDeep`.
-- `DateFns.Bundle.gs` means that you can import `"DateFns"` and use all of its methods.
-
 #### On its name
 
 The project's default identifier is `Bundle` but is called "ImportBundles" to emphasize what it's used for.
